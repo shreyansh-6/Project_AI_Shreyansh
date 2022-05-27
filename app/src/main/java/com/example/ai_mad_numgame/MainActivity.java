@@ -72,12 +72,68 @@ public class MainActivity extends AppCompatActivity {
     public void newMatch() {  //A game is composed of three matches
 
         int operand1 = random.nextInt(10);
-        int operand2=0;
+        int operand2= random.nextInt(10);
         //check is operand2 is not zero; otherwise in case of division-divide by zero error will come
         String operator = operators[random.nextInt(4)];
         textView2.setText(operand1 + operator + operand2);
 
       // Your code here, to diplay correct and incorrect options on the buttons
+        int correctanswer = -100;
+        if (operator.equals("+"))
+        {
+            correctanswer=operand1+operand2;
+        }
+
+        else if (operator.equals("-"))
+        {
+            correctanswer=operand1-operand2;
+        }
+
+        else if (operator.equals("*"))
+        {
+            correctanswer=operand1*operand2;
+        }
+
+        else if (operator.equals("/"))
+        {
+            correctanswer=operand1/operand2;
+        }
+
+
+        correctButton = random.nextInt(4);
+
+        if (correctButton==0)
+        {
+            button1.setText(correctanswer+"");
+            button2.setText(correctanswer+1+"");
+            button3.setText(correctanswer-1+"");
+            button4.setText(correctanswer+2+"");
+        }
+        else if (correctButton == 1)
+        {
+            button1.setText(correctanswer+1+"");
+            button2.setText(correctanswer+"");
+            button3.setText(correctanswer-1+"");
+            button4.setText(correctanswer+2+"");
+        }
+
+        else if (correctButton == 2)
+        {
+            button1.setText(correctanswer+1+"");
+            button2.setText(correctanswer-1+"");
+            button3.setText(correctanswer+"");
+            button4.setText(correctanswer+2+"");
+        }
+
+
+        else if (correctButton == 4)
+        {
+            button1.setText(correctanswer+1+"");
+            button2.setText(correctanswer+2+"");
+            button3.setText(correctanswer-1+"");
+            button4.setText(correctanswer+"");
+        }
+
 
         if(matchCounter==3){    // if three matches are completed updatee the perfomrance in sharedpreferences
 
